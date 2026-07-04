@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Система баллов для персонала</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        
+        @page {
+            size: A4;
+            margin: 18mm 15mm;
+            background-color: #1a1c23;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #1a1c23;
+            color: #e2e8f0;
+            font-size: 10.5pt;
+            line-height: 1.5;
+        }
+
+        .header-banner {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            padding: 25px 30px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #9333ea;
+        }
+
+        h1 {
+            margin: 0 0 8px 0;
+            font-size: 22pt;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        .important-rule {
+            background-color: rgba(239, 68, 68, 0.15);
+            border-left: 4px solid #ef4444;
+            padding: 10px 15px;
+            color: #fca5a5;
+            font-weight: bold;
+            font-size: 11pt;
+            border-radius: 0 6px 6px 0;
+            margin-top: 5px;
+        }
+
+        h2 {
+            font-size: 14pt;
+            color: #a78bfa;
+            margin: 25px 0 15px 0;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #374151;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            page-break-after: avoid;
+        }
+
+        h3 {
+            font-size: 11.5pt;
+            color: #f4f4f5;
+            margin: 18px 0 10px 0;
+            page-break-after: avoid;
+            display: block;
+            border-left: 3px solid #6366f1;
+            padding-left: 8px;
+        }
+
+        .grid-table {
+            display: table;
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+            background-color: #242731;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .table-row {
+            display: table-row;
+        }
+
+        .table-row:nth-child(even) {
+            background-color: #2a2e3b;
+        }
+
+        .table-cell {
+            display: table-cell;
+            padding: 10px 14px;
+            border-bottom: 1px solid #374151;
+            vertical-align: middle;
+        }
+
+        .cell-points {
+            width: 90px;
+            text-align: right;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .plus-pts {
+            color: #10b981;
+        }
+
+        .minus-pts {
+            color: #f87171;
+        }
+
+        .note {
+            font-style: italic;
+            color: #9ca3af;
+            font-size: 9.5pt;
+            margin-top: -5px;
+            margin-bottom: 15px;
+            padding-left: 14px;
+        }
+
+        .shop-section {
+            background-color: #242731;
+            border: 1px solid #3b82f6;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            page-break-inside: avoid;
+        }
+
+        .shop-section h2 {
+            color: #60a5fa;
+            margin-top: 0;
+            border-bottom: 1px solid #3b82f6;
+        }
+
+        .exclusive-box {
+            background: linear-gradient(135deg, rgba(217, 70, 239, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border: 1px dashed #d946ef;
+            border-radius: 6px;
+            padding: 12px 15px;
+            margin-top: 15px;
+        }
+
+        .exclusive-title {
+            color: #f472b6;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            font-size: 10pt;
+        }
+
+        .row-avoid {
+            page-break-inside: avoid;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-banner">
+        <h1>Система баллов для персонала</h1>
+        <div class="important-rule">
+            ВАЖНОЕ ПРАВИЛО: Баллы передавать другим пользователям нельзя.
+        </div>
+    </div>
+
+    <h2>Получение баллов</h2>
+
+    <h3>Дежурство и онлайн (ПТ / График)</h3>
+    <div class="grid-table">
+        <div class="table-row">
+            <div class="table-cell">Отсидка ПТ (по графику)</div>
+            <div class="table-cell cell-points plus-pts">+5 б.</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">Пересид (сверх графика)</div>
+            <div class="table-cell cell-points plus-pts">+1 б.</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">Общий онлайн за день от 1 до 2 часов</div>
+            <div class="table-cell cell-points plus-pts">+1 б.</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">Общий онлайн за день от 3 до 5 часов</div>
+            <div class="table-cell cell-points plus-pts">+5 б.</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">Общий онлайн за день от 6 до 8 часов</div>
+            <div class="table-cell cell-points plus-pts">+7 б.</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">Общий онлайн за день от 10 и более часов</div>
+            <div class="table-cell cell-points plus-pts">+10 б.</div>
+        </div>
+    </div>
+
+    <h3>Модерация и работа с игроками</h3>
+    <div class="grid-table">
+        <div class="table-row">
+            <div class="table-cell">Правильная выдача наказания</div>
+            <div class="table-cell cell-points plus-pts">+2 б.</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">Наличие отката и всех необходимых доказательств</div>
+            <div class="table-cell cell-points plus-pts">+2 б.</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">Выдача 3-го предупреждения</div>
+            <div class="table-cell cell-points plus-pts">+5 б.</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">Отклик на репорт <span style="color:#9ca3af; font-size:9pt;">(в зависимости от ситуации, например: выдача гендерной роли при её отсутствии)</span></div>
+            <div class="table-cell cell-points plus-pts">3 – 5 б.</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">Получение положительного отзыва <span style="color:#9ca3af; font-size:9pt;">(оценивается индивидуально в зависимости от контекста)</span></div>
+            <div class="table-cell cell-points plus-pts">3 – 5 б.</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">Разбор игровых ситуаций <span style="color:#a78bfa; font-size:9pt;">(доступно для должностей от Мастера до Секьюрити)</span></div>
+            <div class="table-cell cell-points plus-pts">+5 б.</div>
+        </div>
+    </div>
+
+    <h3>Рекрутинг, развитие и активности</h3>
+    <div class="grid-table">
+        <div class="table-row">
+            <div class="table-cell">Приглашение нового сотрудника на ветку <span style="color:#10b981; font-size:9pt;">(если человек отсидит от 2 дней до недели, пригласившему дополнительно выплачивается +50 рублей)</span></div>
+            <div class="table-cell cell-points plus-pts">+10 б.</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">Перепрохождение собеседования <span style="color:#9ca3af; font-size:9pt;">(доступно 1 раз в месяц)</span></div>
+            <div class="table-cell cell-points plus-pts">—</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">Проведение интерактива <span style="color:#9ca3af; font-size:9pt;">(подробности и последствия проведения будут сообщены позже)</span></div>
+            <div class="table-cell cell-points plus-pts">5 – 10 б.</div>
+        </div>
+    </div>
+
+    <h3>Работа Старшего состава (Вышки)</h3>
+    <div class="grid-table">
+        <div class="table-row">
+            <div class="table-cell">Проведение собеседования на должность обычного Модератора <span style="color:#a78bfa; font-size:9pt;">(для Мастеров и выше)</span></div>
+            <div class="table-cell cell-points plus-pts">2 – 3 б.</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">Проведение собеседования на должность Мастера <span style="color:#a78bfa; font-size:9pt;">(для Кураторов)</span></div>
+            <div class="table-cell cell-points plus-pts">3 – 5 б.</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">Проведение собеседования на должность Куратора <span style="color:#a78bfa; font-size:9pt;">(для Секьюрити, оценивается индивидуально)</span></div>
+            <div class="table-cell cell-points plus-pts">5 – 10 б.</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">Помощь Куратору от Мастера</div>
+            <div class="table-cell cell-points plus-pts">+10 б.</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">Помощь Администратору от Куратора</div>
+            <div class="table-cell cell-points plus-pts">+25 б.</div>
+        </div>
+    </div>
+    <div class="note">Примечание: Мастер и Куратор не могут помогать остальным должностям Вышки.</div>
+
+    <h2>Снятие баллов (Штрафы)</h2>
+    <div class="grid-table">
+        <div class="table-row row-avoid">
+            <div class="table-cell">Невыполнение ПТ (графика)</div>
+            <div class="table-cell cell-points minus-pts">-15 б.</div>
+        </div>
+        <div class="table-row row-avoid">
+            <div class="table-cell">Одобренные жалобы или репорты на тебя</div>
+            <div class="table-cell cell-points minus-pts">-10 б.</div>
+        </div>
+        <div class="table-row row-avoid">
+            <div class="table-cell">Выговоры <span style="color:#9ca3af; font-size:9pt;">(выдаются только Старшему составу (Вышке) вместе со снятием баллов)</span></div>
+            <div class="table-cell cell-points minus-pts">—</div>
+        </div>
+        <div class="table-row row-avoid">
+            <div class="table-cell">Некорректное поведение (токсичность, троллинг и т.п.)</div>
+            <div class="table-cell cell-points minus-pts">-10 б.</div>
+        </div>
+        <div class="table-row row-avoid">
+            <div class="table-cell">Несоблюдение субординации</div>
+            <div class="table-cell cell-points minus-pts">-10 б.</div>
+        </div>
+        <div class="table-row row-avoid">
+            <div class="table-cell">Превышение полномочий для Куратора</div>
+            <div class="table-cell cell-points minus-pts">-10 б.</div>
+        </div>
+        <div class="table-row row-avoid">
+            <div class="table-cell">Превышение полномочий для Секьюрити</div>
+            <div class="table-cell cell-points minus-pts">-20 б.</div>
+        </div>
+        <div class="table-row row-avoid">
+            <div class="table-cell">Умышленное переполнение румы <span style="color:#9ca3af; font-size:9pt;">(за каждые 15 секунд)</span></div>
+            <div class="table-cell cell-points minus-pts">-5 б.</div>
+        </div>
+        <div class="table-row row-avoid">
+            <div class="table-cell">Отсутствие доказательств нарушения при выдаче мута</div>
+            <div class="table-cell cell-points minus-pts">-10 б.</div>
+        </div>
+        <div class="table-row row-avoid">
+            <div class="table-cell">Отсутствие доказательств нарушения при выдаче таймаута</div>
+            <div class="table-cell cell-points minus-pts">-15 б.</div>
+        </div>
+        <div class="table-row row-avoid">
+            <div class="table-cell">Невыполнение обязанностей для Старшего состава (Вышке)</div>
+            <div class="table-cell cell-points minus-pts">от -10 до -20 б.</div>
+        </div>
+    </div>
+
+    <div class="shop-section">
+        <h2>Магазин бонусов</h2>
+        
+        <h3>Вывод и подписки</h3>
+        <div class="grid-table">
+            <div class="table-row">
+                <div class="table-cell"><strong>Прямой вывод средств</strong> (1 балл = 5 рублей, доступно к выводу сразу)</div>
+                <div class="table-cell cell-points" style="color:#60a5fa;">По курсу</div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">Discord Nitro Full (1 месяц)</div>
+                <div class="table-cell cell-points" style="color:#60a5fa;">130 б.</div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">Dota Plus (1 месяц)</div>
+                <div class="table-cell cell-points" style="color:#60a5fa;">150 б.</div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">Prime Status (CS2)</div>
+                <div class="table-cell cell-points" style="color:#60a5fa;">650 б.</div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">Игровые подписки / Донат в игры</div>
+                <div class="table-cell cell-points" style="color:#9ca3af; font-size:9pt;">От стоимости</div>
+            </div>
+        </div>
+
+        <h3>Внутриигровые и должностные услуги</h3>
+        <div class="grid-table">
+            <div class="table-row">
+                <div class="table-cell">Снятие одного выговора</div>
+                <div class="table-cell cell-points" style="color:#60a5fa;">25 б.</div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">Скрытая админка (на 3 дня)</div>
+                <div class="table-cell cell-points" style="color:#60a5fa;">400 б.</div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">Игра в рулетку <span style="color:#9ca3af; font-size:9pt;">(шанс выигрыша — 25%, приз удваивается и составляет 500 баллов)</span></div>
+                <div class="table-cell cell-points" style="color:#60a5fa;">250 б.</div>
+            </div>
+        </div>
+
+        <div class="exclusive-box">
+            <div class="exclusive-title">🔥 Эксклюзив</div>
+            <div style="font-size: 10pt; color: #f9a8d4;">
+                <strong>Сигна от Администратора</strong> — от 1 000 до 10 000 баллов. <br>
+                <span style="color: #e2e8f0; opacity: 0.85;">Итоговая стоимость и место размещения определяются Администратором. Запрещено делать сигны на лице и интимного характера, если Администратор против.</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
